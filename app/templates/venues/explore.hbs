@@ -1,0 +1,82 @@
+<div class="explore-results">
+  <h3>Results: {{model.totalResults}}</h3>
+  <hr>
+
+  <div class="groups">
+    {{#each model.groups as |group|}}
+      <div class="group-body">
+        <h4>{{group.type}}</h4>
+
+        {{#each group.venues as |venue|}}
+          {{#cp-panel}}
+            {{#cp-panel-toggle}}
+              <div class="venue-panel">
+                <table width="100%">
+                  <tr>
+                    <td>
+                      <label>{{venue.name}}</label><span>
+                        {{#if venue.stats.checkinsCount}}
+                          : {{venue.stats.checkinsCount}}
+                        {{/if}}
+                      </span>
+                    </td>
+                    <td align="right">
+                      <span>{{venue.rating}}</span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            {{/cp-panel-toggle}}
+            {{#cp-panel-body}}
+              <div class="venue-body row">
+                <div class="col-md-6">
+                  {{#if venue.url}}
+                    <p><a href={{venue.url}} target="_blank">{{venue.url}}</a></p>
+                  {{/if}}
+                  {{#if venue.location.formattedAddress}}
+                    {{#each venue.location.formattedAddress as |addressLine|}}
+                      <p>{{addressLine}}</p>
+                    {{/each}}
+                  {{else}}
+                    {{#if venue.location.address}}
+                      <p>{{venue.location.address}}</p>
+                    {{/if}}
+                    {{#if venue.location.city}}
+                      <p>{{venue.location.city}}</p>
+                    {{/if}}
+                    {{#if venue.location.state}}
+                      <p>{{venue.location.state}}</p>
+                    {{/if}}
+                    {{#if venue.location.postalCode}}
+                      <p>{{venue.location.postalCode}}</p>
+                    {{/if}}
+                    {{#if venue.location.country}}
+                      <p>{{venue.location.country}}</p>
+                    {{/if}}
+                  {{/if}}
+                </div>
+                <div class="col-md-6">
+                  {{#if venue.contact.formattedPhone}}
+                    <p>{{venue.contact.formattedPhone}}</p>
+                  {{/if}}
+                  {{#if venue.twitter}}
+                    <p><a href={{venue.twitter}} target="_blank">twitter</a></p>
+                  {{/if}}
+                  {{#if venue.facebook}}
+                    <p><a href={{venue.facebook}} target="_blank">facebook</a></p>
+                  {{/if}}
+                </div>
+              </div>
+            {{/cp-panel-body}}
+          {{/cp-panel}}
+        {{else}}
+          <p>Sorry, there are no results for this group</p>
+        {{/each}}
+      </div>
+    {{else}}
+      <p>Sorry, there are no results for the place you searched</p>
+    {{/each}}
+  </div>
+
+  {{outlet}}
+</div>

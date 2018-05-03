@@ -1,0 +1,14 @@
+<div class="venues-container">
+  <div class="venues-search">
+    <h2>Explore Venues</h2>
+    <form {{action "explore" query on="submit"}}>
+      <div class="form-group">
+        <label>Places near:</label>
+        {{input type="text" value=query size="50" class="form-control"}}
+      </div>
+      <button type="submit" class="btn btn-primary">Find</button>
+    </form>
+  </div>
+
+  {{outlet}}
+</div>

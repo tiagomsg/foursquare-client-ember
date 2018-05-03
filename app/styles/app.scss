@@ -1,0 +1,54 @@
+@import "bootstrap";
+
+.maxwidth {
+  width: 100%;
+  max-width: 100%;
+}
+
+.app-bar {
+  @extend .navbar;
+  @extend .navbar-default;
+  @extend .navbar-static-top;
+}
+
+.app-bar-header {
+  @extend .navbar-header;
+  @extend .navbar-brand;
+}
+
+.app-main {
+  @extend .container;
+  @extend .maxwidth;
+}
+
+.venues-search {
+  @extend .jumbotron;
+}
+
+.explore-error {
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+.explore-loading {
+  @extend .alert;
+  @extend .alert-info;
+}
+
+.cp-Panel {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+.cp-Panel-toggle {
+  display: block;
+  padding: 1em;
+}
+.cp-Panel-toggle:link {
+  text-decoration: none;
+}
+.cp-Panel-toggle:hover {
+  background-color: whitesmoke;
+}
+.cp-Panel-body-inner {
+  padding: 1em;
+}
